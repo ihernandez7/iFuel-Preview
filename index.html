@@ -1,0 +1,163 @@
+<!doctype html>
+
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>iFuel Preview</title>
+    <meta name="description" content="A tool used for calculating race stint length and fuel loads designed for racing and sim racing drivers or teams.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="images/icon.png">
+    <link rel="shortcut icon" type='image/x-icon' href="images/logo.ico">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+    
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+    <script src="js/vendor/jquery-3.3.1.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111455007-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-111455007-2');
+    </script>
+  </head>
+
+  <body>
+    <div class="stats-bar mb-5 text-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-4 col-sm-3">
+            <h1 class="mb-0 mt-0 lap-count">0</h1>
+            <span class="small">Laps</span>
+          </div>
+          <div class="col-4 col-sm-3 d-none d-sm-block">
+            <h1 class="mb-0 mt-0 total-litres">0</h1>
+            <span class="small">Litres <span class="text-white-50">Total</span></span>
+          </div>
+          <div class="col-4 col-sm-3">
+            <h1 class="mb-0 mt-0 final-litres">0</h1>
+            <span class="small">Litres <span class="text-white-50">Final</span></span>
+          </div>
+          <div class="col-4 col-sm-3">
+            <h1 class="mb-0 mt-0 pit-count">0</h1>
+            <span class="small">Pitstops</span>
+          </div>
+        </div>
+      </div>
+    </div>   <div class="container" style="margin-top: 140px;">
+      <div class="row">
+        <div class="col-md-12">
+          <form>
+            <div class="section">
+              <div class="form-group row">
+                <label for="race-time-hour" class="col-form-label col-sm-6">Total Race Time</label>
+                <div class="col-sm-3 col-6">
+                  <div class="input-group">
+                    <input type="number" min=0 name="race-time-hour" id='race-time-hour' placeholder="00" class="form-control" autofocus>
+                    <div class="input-group-append">
+                      <span class="input-group-text">Hour</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3 col-6">
+                  <div class="input-group">
+                    <input type="number" min=0 name="race-time-minute" id="race-time-minute" placeholder="00" class="form-control">
+                    <div class="input-group-append">
+                      <span class="input-group-text">Min</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="lap-time-minute" class="col-form-label col-sm-6">Average Lap Time</label>
+                <div class="col-sm-3 col-6">
+                  <div class="input-group">
+                    <input type="number" min=0 name="lap-time-minute" id="lap-time-minute" placeholder="00" class="form-control">
+                    <div class="input-group-append">
+                      <span class="input-group-text">Min</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3 col-6">
+                  <div class="input-group">
+                    <input type="number" min=0 name="lap-time-second" id="lap-time-second" placeholder="00" class="form-control">
+                    <div class="input-group-append">
+                      <span class="input-group-text">S</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="total-laps" class="col-form-label col-sm-6">Total Race Laps</label>
+                <div class="col-sm-6 col-12">
+                  <input type="number" min=0 id="total-laps" name="total-laps" placeholder="0" class="form-control">
+                 </div>
+              </div>
+            
+              <div class="form-group row">
+                <label for="fuel-per-lap" class="col-form-label col-sm-6">Fuel Per Lap</label>
+                <div class="col-sm-6 col-12">
+                  <div class="input-group">
+                    <input type="number" min=0 name="fuel-per-lap" id="fuel-per-lap" placeholder="0" class="form-control">
+                    <div class="input-group-append">
+                      <span class="input-group-text">Litres</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group row mb-0">
+                <label for="tank-capacity" class="col-form-label col-sm-6">Fuel Tank Capacity</label>
+                <div class="col-sm-6 col-12">
+                  <div class="input-group">
+                    <input type="number" min=0 name="tank-capacity" id="tank-capacity" placeholder="0" class="form-control">
+                    <div class="input-group-append">
+                      <span class="input-group-text">Litres</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+              </div>
+            </div>
+          </form>
+          <div class="col-md-12">
+            <h1 class="mt-0 mb-0">iFuel Preview</h1>
+          
+
+            <p>What is <a href="https://github.com/Hyperz5/iFuelPreview">iFuel Preview</a>? It is a simple app with which you can calculate the fuel 
+              needed for your next race in any simulator, we hope you enjoy it, and remember, if something fails, do not hesitate to tell
+               us in our <a href="https://discord.gg/DFP38WN93t">discord</a></p>
+            <hr>
+            
+          </div> 
+
+
+          
+        </div>
+      </div>
+    </div>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="/__/firebase/8.8.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="/__/firebase/8.8.0/firebase-analytics.js"></script>
+
+    <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js"></script>
+    
+
+  </body>
+</html>

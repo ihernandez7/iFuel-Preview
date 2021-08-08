@@ -1,0 +1,70 @@
+/* COLOR LEGEND */
+/* Blue:        #202C5E */
+/* Dark Blue:   #121834 */
+/* Darker Blue: #0B0F20 */
+/* Light Blue:  #C2CDFF */
+
+
+body {
+  background-color: black;
+  color: #C2CDFF;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+hr {
+  border-color: darkgreen;
+}
+
+.stats-bar {
+  background-color: darkgreen;
+  padding: 30px 0 25px 0;
+  position: fixed;
+  width: 100%;
+  z-index: 11;
+  top: 0;
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border-radius: 5px;
+}
+
+.stats-bar h1 {
+  line-height: 0.7;
+}
+
+.stats-bar span {
+  color: white;
+  text-transform: uppercase;
+}
+
+.section {
+  border-left: 10px solid;
+  border-bottom: 1px solid;
+  padding: 10px 10px 10px 10px;
+  border-color: darkgreen;
+  background-color: black;
+  margin-bottom: 20px;
+}
+
+.section h5 {
+  text-transform: uppercase;
+}
+
+footer {
+  background-color: #0B0F20;
+  padding: 30px 0;
+  color: black;
+  font-size: 12px;
+}
+
+input.form-control, input.form-control:focus {
+  background-color: #0B0F20;
+  border-color: darkgreen;
+  color: #C2CDFF;
+}
+
+.input-group-text {
+  background-color:darkgreen;
+  color: #C2CDFF;
+  border: none;
+  border-radius: 5px;
+}
